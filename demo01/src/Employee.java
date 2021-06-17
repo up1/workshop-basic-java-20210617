@@ -8,7 +8,7 @@ public class Employee {
 
     // Constructor
     public Employee() {
-        this("?", "?");
+        this("", "");
     }
 
     public Employee(String fname, String lname) {

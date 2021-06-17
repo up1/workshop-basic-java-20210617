@@ -4,7 +4,6 @@ public class Main {
         String fname = args[0];
         String lname = args[1];
         Employee somkiat = new Employee(fname, lname); // Default constructor
-
         String result = somkiat.getFullName();
         System.out.println(result);
     }
