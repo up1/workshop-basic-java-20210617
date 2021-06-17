@@ -18,4 +18,18 @@ class MyRangeTest {
         assertFalse(isInclude);
     }
 
+    @Test
+    public void getFirstNumberAndStartWithInclude() { // [
+        MyRange myRange = new MyRange("[1,5]");
+        int firstNumber = myRange.getFirstNumber();
+        assertEquals(1, firstNumber);
+    }
+
+    @Test
+    public void getFirstNumberAndStartWithExclude() { // [
+        MyRange myRange = new MyRange("(1,5]");
+        int firstNumber = myRange.getFirstNumber();
+        assertEquals(2, firstNumber);
+    }
+
 }
