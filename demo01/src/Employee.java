@@ -3,12 +3,17 @@ public class Employee {
     private int id;
     private String fname;
     private String lname;
-//    Department dep;
+    //    Department dep;
     private String pos;
 
-    // Behaviors or methods
-    void doSmt() {
+    // Constructor
+    public Employee() {
+        this("?", "?");
+    }
 
+    public Employee(String fname, String lname) {
+        this.fname = fname;
+        this.lname = lname;
     }
 
     public String getFullName() {
