@@ -3,7 +3,7 @@ public class Employee {
     private int id;
     private String fname;
     private String lname;
-    //    Department dep;
+    private Department dep;
     private String pos;
 
     // Constructor
@@ -15,7 +15,7 @@ public class Employee {
         this.fname = fname;
         this.lname = lname;
     }
-
+    // Behaviors or methods
     public String getFullName() {
         return fname + " : " + lname;
     }
