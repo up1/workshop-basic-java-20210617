@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Demo02 {
     public static void main(String[] args) {
         // String
@@ -19,5 +21,6 @@ public class Demo02 {
         for (int i = 0; i < scores.length; i++) {
             System.out.println(i + " : " + scores[i]);
         }
+        Arrays.stream(scores).forEach(System.out::println);
     }
 }
