@@ -27,6 +27,7 @@ public class MyRange {
         int firstNumber = getFirstNumber();
         int secondNumber = 5;
 //        String[] results = new String[secondNumber - firstNumber + 1];
+        // Collection Framework
         List<String> results = new ArrayList<>();
         for (int i = firstNumber; i < secondNumber + 1 ; i++) {
             results.add(String.valueOf(i));
