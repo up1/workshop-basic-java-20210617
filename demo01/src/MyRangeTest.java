@@ -32,4 +32,18 @@ class MyRangeTest {
         assertEquals(2, firstNumber);
     }
 
+    @Test
+    public void result01() { // [
+        MyRange myRange = new MyRange("[1,5]");
+        String result = myRange.getResult();
+        assertEquals("1,2,3,4,5", result);
+    }
+
+    @Test
+    public void result02() { // [
+        MyRange myRange = new MyRange("(1,5]");
+        String result = myRange.getResult();
+        assertEquals("2,3,4,5", result);
+    }
+
 }

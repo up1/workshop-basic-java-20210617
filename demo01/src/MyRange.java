@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyRange {
 
     private final String input;
@@ -20,4 +23,14 @@ public class MyRange {
 
     }
 
+    public String getResult() {
+        int firstNumber = getFirstNumber();
+        int secondNumber = 5;
+//        String[] results = new String[secondNumber - firstNumber + 1];
+        List<String> results = new ArrayList<>();
+        for (int i = firstNumber; i < secondNumber + 1 ; i++) {
+            results.add(String.valueOf(i));
+        }
+        return String.join(",", results);
+    }
 }
