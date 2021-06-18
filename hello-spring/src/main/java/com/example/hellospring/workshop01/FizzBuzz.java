@@ -5,9 +5,10 @@ public class FizzBuzz {
         // Prepare all conditions
         MyCondition[] conditions = new MyCondition[]{
                 new FizzBuzzCondition(),
-                new FizzCondition()
+                new FizzCondition(),
+                new KBTGCondition()
         };
-
+        // Check condition ?
         for (MyCondition condition : conditions) {
             if(condition.check(number)) {
                 return condition.print();
