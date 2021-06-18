@@ -6,7 +6,10 @@ public class FizzBuzz {
         if (fizzBuzzCondition.check(number)) {
             return fizzBuzzCondition.print();
         }
-        if (number % 3 == 0) return "Fizz";
+        FizzCondition fizzCondition = new FizzCondition();
+        if (fizzCondition.check(number)) {
+            return fizzCondition.print();
+        }
         if (number % 5 == 0) return "Buzz";
         return Integer.toString(number);
     }
