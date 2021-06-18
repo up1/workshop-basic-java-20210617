@@ -6,7 +6,8 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Random7 extends Random {
+class Random7 implements IRandom {
+
     @Override
     public int nextInt(int bound) {
         return 7;
