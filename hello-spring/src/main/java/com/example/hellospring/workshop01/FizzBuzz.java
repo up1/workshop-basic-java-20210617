@@ -15,8 +15,12 @@ public class FizzBuzz {
             }
         }
 
-        if (number % 5 == 0) return "Buzz";
+        if (เช็คว่าหาร5ลงตัวไหม(number)) return "Buzz";
         return Integer.toString(number);
+    }
+
+    private boolean เช็คว่าหาร5ลงตัวไหม(int number) {
+        return number % 5 == 0;
     }
 }
 
