@@ -1,6 +1,6 @@
 package com.example.hellospring.workshop01;
 
-public class FizzBuzzCondition {
+public class FizzBuzzCondition implements MyCondition {
     public boolean check(int number) {
         return number % 3 == 0 & number % 5 == 0;
     }

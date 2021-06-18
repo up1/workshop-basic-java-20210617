@@ -2,14 +2,18 @@ package com.example.hellospring.workshop01;
 
 public class FizzBuzz {
     public String printFizzBuzz(int number) {
-        FizzBuzzCondition fizzBuzzCondition = new FizzBuzzCondition();
-        if (fizzBuzzCondition.check(number)) {
-            return fizzBuzzCondition.print();
+        // Prepare all conditions
+        MyCondition[] conditions = new MyCondition[]{
+                new FizzBuzzCondition(),
+                new FizzCondition()
+        };
+
+        for (MyCondition condition : conditions) {
+            if(condition.check(number)) {
+                return condition.print();
+            }
         }
-        FizzCondition fizzCondition = new FizzCondition();
-        if (fizzCondition.check(number)) {
-            return fizzCondition.print();
-        }
+
         if (number % 5 == 0) return "Buzz";
         return Integer.toString(number);
     }
