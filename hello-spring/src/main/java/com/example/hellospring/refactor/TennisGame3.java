@@ -14,16 +14,39 @@ public class TennisGame3 {
 
     public String getScore() {
         String s;
-        if (p1 < 4 && p2 < 4 && !(p1 + p2 == 6)) {
-            String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-            s = p[p1];
-            return (p1 == p2) ? s + "-All" : s + "-" + p[p2];
-        } else {
-            if (p1 == p2)
-                return "Deuce";
-            s = p1 > p2 ? p1N : p2N;
-            return ((p1-p2)*(p1-p2) == 1) ? "Advantage " + s : "Win for " + s;
+        String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
+
+        // Advantage
+        if(Math.abs(p1 - p2) == 1 && (p1+p2) > 5) {
+            s = (p1 > p2) ? p1N : p2N;
+            return "Advantage " + s;
         }
+
+        // All
+        if(p1 == p2 && p1 <= 2) {
+            return p[p1] + "-All";
+        }
+
+        // Deuce
+        if (isDeuce()) {
+            return "Deuce";
+        }
+
+
+
+        // What ? Normal
+        if (p1 < 4 && p2 < 4 && !(p1 + p2 == 6)) {
+            return p[p1] + "-" + p[p2];
+        }
+
+        // TODO Next
+        s = (p1 > p2) ? p1N : p2N;
+        return "Win for " + s;
+
+    }
+
+    private boolean isDeuce() {
+        return p1 == p2 && p1 > 2;
     }
 
     public void wonPoint(String playerName) {
