@@ -1,6 +1,7 @@
 package com.example.hellorest;
 
 import com.example.hellorest.employee.Demo;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -9,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import java.util.Random;
 
 @SpringBootApplication
-public class HelloRestApplication {
+public class HelloRestApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context
@@ -28,4 +29,9 @@ public class HelloRestApplication {
 		System.out.println("Demo2 =>" + demo2.getName());
 	}
 
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("Start ...");
+		System.out.println("Finish ...");
+	}
 }
