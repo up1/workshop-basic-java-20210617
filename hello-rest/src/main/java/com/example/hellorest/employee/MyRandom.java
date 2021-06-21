@@ -4,6 +4,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
-@Component
+//@Component
 public class MyRandom extends Random {
 }

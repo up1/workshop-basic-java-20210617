@@ -14,8 +14,13 @@ import java.util.Random;
 @RestController
 public class EmployeeController {
 
+    @Bean
+    public Random createNewRandom() {
+        return new Random();
+    }
+
     @Autowired
-    private MyRandom random;
+    private Random random;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable String id) {
