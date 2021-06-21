@@ -16,11 +16,13 @@ public class EmployeeControllerTest {
 
     @Test
     public void callApiWithPathVariable() {
+        EmployeeResponse expected = new EmployeeResponse(123, "Somkiat", "Pui");
         EmployeeResponse response
                 = restTemplate.getForObject("/employee/123", EmployeeResponse.class);
         assertEquals(123, response.getId());
         assertEquals("Somkiat", response.getFname());
         assertEquals("Pui", response.getLname());
+        assertEquals(expected, response);
     }
 
     @Test
