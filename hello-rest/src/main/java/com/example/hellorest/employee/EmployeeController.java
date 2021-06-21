@@ -10,8 +10,11 @@ import javax.persistence.Id;
 public class EmployeeController {
 
     @GetMapping("/employee/{id}")
-    public EmployeeResponse getEmployeeByID(@PathVariable int id) {
-        return new EmployeeResponse(id, "Somkiat", "Pui");
+    public EmployeeResponse getEmployeeByID(@PathVariable String id) {
+        // Validate id => Number only
+
+        int _id = 0;
+        return new EmployeeResponse(_id, "Somkiat", "Pui");
     }
 
 }
