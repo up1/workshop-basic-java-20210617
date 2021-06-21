@@ -3,10 +3,7 @@ package com.example.hellorest.employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Id;
 import java.util.Random;
@@ -47,6 +44,11 @@ public class EmployeeController {
             // ERROR => TODO ?
         }
         return new EmployeeResponse(_id, "Somkiat", "Pui");
+    }
+
+    @PostMapping("/employee")
+    public EmployeeResponse createNewEmployee(@RequestBody EmployeeRequest request) {
+        return new EmployeeResponse(999, request.getFname(), request.getLname());
     }
 
 }
