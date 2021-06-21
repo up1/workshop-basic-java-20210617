@@ -22,7 +22,7 @@ public class EmployeeControllerTest {
         assertEquals(123, response.getId());
         assertEquals("Somkiat", response.getFname());
         assertEquals("Pui", response.getLname());
-        assertEquals(expected, response);
+        assertEquals(expected, response); // Pass ?
     }
 
     @Test
