@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.Id;
+import java.util.Random;
 
 @RestController
 public class EmployeeController {
@@ -20,7 +21,10 @@ public class EmployeeController {
         }catch (NumberFormatException e) {
             // ERROR => TODO ?
         }
-        return new EmployeeResponse(_id, "Somkiat", "Pui");
+        // Workshop
+        Random random = new Random();
+        int number = random.nextInt(10);
+        return new EmployeeResponse(_id, "Somkiat" + number, "Pui");
     }
 
     // employee?id2==?
