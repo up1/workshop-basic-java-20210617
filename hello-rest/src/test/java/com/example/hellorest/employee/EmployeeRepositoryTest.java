@@ -14,6 +14,20 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void foundWithID1() {
+        Employee data = new Employee("Somkiat from DB", "Pui from DB");
+        repository.save(data);
+
+        Employee employee1 =  repository.getById(1);
+        assertEquals(1, employee1.getId());
+        assertEquals("Somkiat from DB", employee1.getFirstName());
+        assertEquals("Pui from DB", employee1.getLastName());
+    }
+
+    @Test
+    public void foundWithID2() {
+        Employee data = new Employee("Somkiat from DB", "Pui from DB");
+        repository.save(data);
+
         Employee employee1 =  repository.getById(1);
         assertEquals(1, employee1.getId());
         assertEquals("Somkiat from DB", employee1.getFirstName());
