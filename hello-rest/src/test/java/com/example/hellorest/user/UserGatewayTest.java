@@ -19,4 +19,11 @@ public class UserGatewayTest {
         assertEquals(10, users.getUsers().size());
     }
 
+    @Test
+    public void tryToCallAPIGetUserById() {
+        UserModel user = userGateway.getUserById(1);
+        assertEquals(1, user.getId());
+        assertEquals("Leanne Graham", user.getName());
+    }
+
 }

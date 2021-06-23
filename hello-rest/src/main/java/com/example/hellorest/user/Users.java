@@ -1,5 +1,9 @@
 package com.example.hellorest.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+
 import java.util.List;
 
 public class Users {

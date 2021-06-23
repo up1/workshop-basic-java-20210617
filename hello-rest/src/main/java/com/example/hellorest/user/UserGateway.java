@@ -18,4 +18,11 @@ public class UserGateway {
         return results;
     }
 
+    public UserModel getUserById(int id) {
+        // TODO
+        String url = "https://jsonplaceholder.typicode.com/users/" + id;
+        UserModel user = restTemplate.getForObject(url, UserModel.class);
+        return user;
+    }
+
 }
