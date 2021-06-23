@@ -16,7 +16,6 @@ public class EmployeeService {
     private EmployeeRepository repository;
 
     public EmployeeResponse process(int id) {
-        // Workshop
         int number = random.nextInt(10);
 
         // Call repository

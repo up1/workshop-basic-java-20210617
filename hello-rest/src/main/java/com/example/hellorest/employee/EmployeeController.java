@@ -30,6 +30,7 @@ public class EmployeeController {
             // ERROR => TODO ?
         }
 
+        // Delegate to service
         EmployeeResponse employeeResponse = employeeService.process(_id);
         return employeeResponse;
     }
