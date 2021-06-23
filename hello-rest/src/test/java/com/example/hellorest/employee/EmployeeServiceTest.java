@@ -22,6 +22,15 @@ public class EmployeeServiceTest {
     private EmployeeRepository repository;
 
     @Test
+    public void employee100NotFound() {
+        EmployeeService service = new EmployeeService();
+        EmployeeResponse result = service.process(100);
+        assertEquals(0, result.getId());
+        assertNull(result.getFname());
+        assertNull(result.getLname());
+    }
+
+    @Test
     public void foundEmployeeId1() {
         when(random.nextInt(10)).thenReturn(10);
 
@@ -38,5 +47,7 @@ public class EmployeeServiceTest {
         assertEquals("Service name10", result.getFname());
         assertEquals("Service lname", result.getLname());
     }
+
+
 
 }
