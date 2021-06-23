@@ -6,6 +6,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Id;
+import java.util.Optional;
 import java.util.Random;
 
 @RestController
@@ -19,18 +20,32 @@ public class EmployeeController {
     @Autowired
     private Random random;
 
+    @Autowired
+    private EmployeeRepository repository;
+
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable String id) {
         // Validate id => Number only
         int _id = 0;
         try {
             _id = Integer.parseInt(id);
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             // ERROR => TODO ?
         }
         // Workshop
         int number = random.nextInt(10);
-        return new EmployeeResponse(_id, "Somkiat" + number, "Pui");
+
+        // Call repository
+        Optional<Employee> result = repository.findById(_id);
+        if (result.isPresent()) {
+            Employee employee = result.get();
+            return new EmployeeResponse(
+                    employee.getId(),
+                    employee.getFirstName() + number,
+                    employee.getLastName());
+        }
+        // Not found ?
+        return new EmployeeResponse();
     }
 
     // employee?id2==?
@@ -40,7 +55,7 @@ public class EmployeeController {
         int _id = 0;
         try {
             _id = Integer.parseInt(id);
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             // ERROR => TODO ?
         }
         return new EmployeeResponse(_id, "Somkiat", "Pui");

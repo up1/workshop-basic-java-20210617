@@ -23,16 +23,25 @@ public class EmployeeControllerTest {
     @MockBean
     private Random random;
 
+    @Autowired
+    private EmployeeRepository repository;
+
     @Test
-    public void callApiWithPathVariable() {
+    public void callApiWithPathVariableAndDatabase() {
         // Mock/Stub/Spy
         when(random.nextInt(anyInt())).thenReturn(5);
+
+        // Create data in database
+        repository.save(new Employee(123, "Somkiat", "Pui"));
 
         // Testing
         EmployeeResponse expected
                 = new EmployeeResponse(123, "Somkiat5", "Pui");
+
+        // Call API
         EmployeeResponse response
                 = restTemplate.getForObject("/employee/123", EmployeeResponse.class);
+
         assertEquals(123, response.getId());
         assertEquals("Somkiat5", response.getFname());
         assertEquals("Pui", response.getLname());
