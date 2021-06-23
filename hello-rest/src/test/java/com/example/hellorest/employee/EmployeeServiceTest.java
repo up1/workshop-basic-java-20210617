@@ -1,5 +1,6 @@
 package com.example.hellorest.employee;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -21,10 +22,13 @@ public class EmployeeServiceTest {
     @Mock
     private EmployeeRepository repository;
 
+    @BeforeEach
+    public void setupMock() {
+        when(random.nextInt(10)).thenReturn(10);
+    }
+
     @Test
     public void employee100NotFound() {
-        when(random.nextInt(10)).thenReturn(10);
-
         when(repository.findById(100)).thenReturn(
                 Optional.empty()
         );
@@ -41,8 +45,6 @@ public class EmployeeServiceTest {
 
     @Test
     public void foundEmployeeId1() {
-        when(random.nextInt(10)).thenReturn(10);
-
         Employee mock = new Employee(1, "Service name", "Service lname");
         when(repository.findById(1)).thenReturn(
                 Optional.of(mock)
