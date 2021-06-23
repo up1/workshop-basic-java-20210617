@@ -15,6 +15,14 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository repository;
 
+    public void setRandom(Random random) {
+        this.random = random;
+    }
+
+    public void setRepository(EmployeeRepository repository) {
+        this.repository = repository;
+    }
+
     public EmployeeResponse process(int id) {
         int number = random.nextInt(10);
 
@@ -30,4 +38,5 @@ public class EmployeeService {
         // Not found ?
         return new EmployeeResponse();
     }
+
 }
