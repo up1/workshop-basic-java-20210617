@@ -18,10 +18,7 @@ public class EmployeeController {
     }
 
     @Autowired
-    private Random random;
-
-    @Autowired
-    private EmployeeRepository repository;
+    private EmployeeService employeeService;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable String id) {
@@ -32,20 +29,9 @@ public class EmployeeController {
         } catch (NumberFormatException e) {
             // ERROR => TODO ?
         }
-        // Workshop
-        int number = random.nextInt(10);
 
-        // Call repository
-        Optional<Employee> result = repository.findById(_id);
-        if (result.isPresent()) {
-            Employee employee = result.get();
-            return new EmployeeResponse(
-                    employee.getId(),
-                    employee.getFirstName() + number,
-                    employee.getLastName());
-        }
-        // Not found ?
-        return new EmployeeResponse();
+        EmployeeResponse employeeResponse = employeeService.process(_id);
+        return employeeResponse;
     }
 
     // employee?id2==?
